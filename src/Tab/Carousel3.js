@@ -4,7 +4,7 @@ import {View, Image} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
 
-const Carousel1 = () => {
+const Carousel3 = () => {
   return (
     <View style={styles.container}>
       <Image
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Carousel1;
+export default Carousel3;

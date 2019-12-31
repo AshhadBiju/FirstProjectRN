@@ -1,21 +1,17 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, Image} from 'react-native';
+import {View, Image, Text} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
 
-const Carousel1 = () => {
+const Carousel4 = () => {
   return (
     <View style={styles.container}>
       <Image
         source={require('../../assets/GodOfWar.png')}
         style={styles.photo}
       />
-      <Button
-        style={styles.buttonlBox}
-        title="Go to Profile"
-        onPress={() => this.props.navigation.navigate('Cart')}
-      />
+      <Text style={styles.buttonlBox}>Done</Text>
     </View>
   );
 };
@@ -35,12 +31,9 @@ const styles = StyleSheet.create({
     width: 70,
     height: 60,
     marginTop: '6%',
-    left: '30%',
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 6,
-    backgroundColor: 'green',
+    left: '35%',
+    fontSize: 20,
   },
 });
 
-export default Carousel1;
+export default Carousel4;
