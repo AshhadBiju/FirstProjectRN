@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
-class FlexContent extends Component{
-  render(){
+class FlexContent extends Component {
+  render() {
     return (
       <View>
         <Text style={styles.contentStyle}>Hi My name is{this.props.name}</Text>
@@ -11,39 +11,50 @@ class FlexContent extends Component{
   }
 }
 export default class Flexbox extends Component {
-constructor(){
-  super();
-  this.state = {
-    main_text: 'Hi(state)',
-    sub_text: 'React(state)',
-  };
-}
+  constructor() {
+    super();
+    this.state = {
+      main_text: 'Hi(state)',
+      sub_text: 'React(state)',
+    };
+  }
 
-updateText(){
-  this.setState({
-    main_text: 'Hi (Hello updated)',
-    sub_text: 'Framework (React Updated)',
-  });
-}
- render() {
+  componentDidMount() {
+    console.log('the username is: ', this.props.route.params.username);
+  }
+
+  updateText() {
+    this.setState({
+      main_text: 'Hi (Hello updated)',
+      sub_text: 'Framework (React Updated)',
+    });
+  }
+  render() {
     return (
-    <View style= {styles.container}>
-      <Text style= {styles.text}>{this.state.main_text}</Text>
-      <Text style= {styles.text}>{this.state.sub_text}</Text>
-      <Text style= {styles.text}>Native</Text>
-      <TouchableHighlight style={styles.button}
-      underlayColor={'red'}
-      onPress={()=>this.updateText()}>
-    <Text style= {styles.buttontexts}>UPDATE</Text>
-      </TouchableHighlight>
-      <FlexContent name = " Mark" />
-    </View>
+      <View style={styles.container}>
+        <Text style={styles.text}>{this.state.main_text}</Text>
+        <Text style={styles.text}>{this.state.sub_text}</Text>
+        <Text style={styles.text}>Native</Text>
+        <TouchableHighlight
+          style={styles.button}
+          underlayColor={'red'}
+          onPress={() => this.updateText()}>
+          <Text style={styles.buttontexts}>UPDATE</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.button}
+          underlayColor="#ffffff"
+          onPress={() => this.props.route.params.navigation.navigate('Drawer')}>
+          <Text style={styles.buttontext}>Click HERE</Text>
+        </TouchableHighlight>
+        <FlexContent name={this.props.route.params.username} />
+      </View>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
@@ -71,5 +82,4 @@ const styles = StyleSheet.create({
     color: 'indigo',
     fontWeight: 'bold',
   },
-
 });

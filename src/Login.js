@@ -11,6 +11,17 @@ import {
 } from 'react-native';
 
 export default class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: null,
+    };
+  }
+
+  updateValue(username) {
+    console.log(username);
+    this.setState({name: username});
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -27,6 +38,7 @@ export default class Login extends Component {
             placeholder="Username"
             placeholderTextColor="white"
             maxLength={10}
+            onChangeText={username => this.updateValue(username)}
           />
           <TextInput
             style={styles.inputView}
@@ -34,9 +46,14 @@ export default class Login extends Component {
             placeholderTextColor="white"
             secureTextEntry={true}
           />
-          <TouchableHighlight style={styles.buttonView}
-            underlayColor= "transparent"
-            onPress={()=> this.props.navigation.navigate('Flexbox')}>
+          <TouchableHighlight
+            style={styles.buttonView}
+            underlayColor="transparent"
+            onPress={() =>
+              this.props.navigation.navigate('Flexbox', {
+                username: this.state.name,
+              })
+            }>
             <Text style={styles.buttonText}>Login</Text>
           </TouchableHighlight>
         </ImageBackground>
