@@ -34,7 +34,16 @@ function MyStack() {
         component={Flexbox}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="Drawer" component={MyDrawer} />
+      <Stack.Screen
+        name="Drawer"
+        component={MyDrawer}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Tab"
+        component={MyTab}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }
@@ -47,6 +56,17 @@ function MyDrawer() {
       <Drawer.Screen name="AboutUs" component={AboutUs} />
       <Drawer.Screen name="Settings" component={Settings} />
     </Drawer.Navigator>
+  );
+}
+
+function MyTab() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Cart" component={Cart} />
+      <Tab.Screen name="Category" component={Category} />
+      <Tab.Screen name="Search" component={Search} />
+      <Tab.Screen name="Order" component={Order} />
+    </Tab.Navigator>
   );
 }
 
