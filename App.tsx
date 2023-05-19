@@ -72,6 +72,8 @@ function MyTab(): JSX.Element {
         name="Cart"
         component={Cart}
         options={{
+          tabBarActiveTintColor: 'blue',
+          tabBarInactiveTintColor: 'gray',
           tabBarIcon: ({focused}) =>
             focused ? (
               <Icon name="shopping-cart" size={24} color="blue" />
@@ -84,6 +86,8 @@ function MyTab(): JSX.Element {
         name="Category"
         component={Category}
         options={{
+          tabBarActiveTintColor: 'blue',
+          tabBarInactiveTintColor: 'gray',
           tabBarIcon: ({focused}) =>
             focused ? (
               <Icon name="category" size={24} color="blue" />
@@ -96,6 +100,8 @@ function MyTab(): JSX.Element {
         name="Search"
         component={Search}
         options={{
+          tabBarActiveTintColor: 'blue',
+          tabBarInactiveTintColor: 'gray',
           tabBarIcon: ({focused}) =>
             focused ? (
               <Icon name="search" size={24} color="blue" />
@@ -108,6 +114,8 @@ function MyTab(): JSX.Element {
         name="Order"
         component={Order}
         options={{
+          tabBarActiveTintColor: 'blue',
+          tabBarInactiveTintColor: 'gray',
           tabBarIcon: ({focused}) =>
             focused ? (
               <Icon name="shopping-bag" size={24} color="blue" />
