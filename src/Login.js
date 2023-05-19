@@ -50,7 +50,7 @@ export default class Login extends Component {
             style={styles.buttonView}
             underlayColor="transparent"
             onPress={() =>
-              this.props.navigation.navigate('Tab', {
+              this.props.navigation.navigate('BottomTab', {
                 username: this.state.name,
               })
             }>

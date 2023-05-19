@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Login from './src/Login';
@@ -17,10 +18,14 @@ import Cart from './src/Tab/Cart';
 import Category from './src/Tab/Category';
 import Search from './src/Tab/Search';
 import Order from './src/Tab/Order';
+import Chats from './src/BottomTab/Chats';
+import Calls from './src/BottomTab/Calls';
+import Status from './src/BottomTab/Status';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createMaterialTopTabNavigator();
+const BottomTab = createBottomTabNavigator();
 
 function MyStack() {
   return (
@@ -43,6 +48,11 @@ function MyStack() {
       <Stack.Screen
         name="Tab"
         component={MyTab}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="BottomTab"
+        component={MyBottomTab}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
@@ -125,6 +135,60 @@ function MyTab(): JSX.Element {
         }}
       />
     </Tab.Navigator>
+  );
+}
+
+function MyBottomTab() {
+  return (
+    <BottomTab.Navigator
+      screenOptions={{
+        tabBarLabelStyle: {fontSize: 12},
+        tabBarItemStyle: {width: 100},
+        tabBarStyle: {backgroundColor: '#fff'},
+      }}>
+      <BottomTab.Screen
+        name="Calls"
+        component={Calls}
+        options={{
+          tabBarActiveTintColor: 'green',
+          tabBarInactiveTintColor: 'gray',
+          tabBarIcon: ({focused}) =>
+            focused ? (
+              <Icon name="call" size={24} color="green" />
+            ) : (
+              <Icon name="call" size={24} color="gray" />
+            ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Chats"
+        component={Chats}
+        options={{
+          tabBarActiveTintColor: 'green',
+          tabBarInactiveTintColor: 'gray',
+          tabBarIcon: ({focused}) =>
+            focused ? (
+              <Icon name="chat" size={24} color="green" />
+            ) : (
+              <Icon name="chat" size={24} color="gray" />
+            ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Status"
+        component={Status}
+        options={{
+          tabBarActiveTintColor: 'green',
+          tabBarInactiveTintColor: 'gray',
+          tabBarIcon: ({focused}) =>
+            focused ? (
+              <Icon name="cached" size={24} color="green" />
+            ) : (
+              <Icon name="cached" size={24} color="gray" />
+            ),
+        }}
+      />
+    </BottomTab.Navigator>
   );
 }
 
