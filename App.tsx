@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Login from './src/Login';
 import Flexbox from './src/Flexbox';
@@ -59,13 +60,62 @@ function MyDrawer() {
   );
 }
 
-function MyTab() {
+function MyTab(): JSX.Element {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Cart" component={Cart} />
-      <Tab.Screen name="Category" component={Category} />
-      <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="Order" component={Order} />
+    <Tab.Navigator
+      screenOptions={{
+        tabBarLabelStyle: {fontSize: 12},
+        tabBarItemStyle: {width: 100},
+        tabBarStyle: {backgroundColor: '#ffff'},
+      }}>
+      <Tab.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          tabBarIcon: ({focused}) =>
+            focused ? (
+              <Icon name="shopping-cart" size={24} color="blue" />
+            ) : (
+              <Icon name="shopping-cart" size={24} color="gray" />
+            ),
+        }}
+      />
+      <Tab.Screen
+        name="Category"
+        component={Category}
+        options={{
+          tabBarIcon: ({focused}) =>
+            focused ? (
+              <Icon name="category" size={24} color="blue" />
+            ) : (
+              <Icon name="category" size={24} color="gray" />
+            ),
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarIcon: ({focused}) =>
+            focused ? (
+              <Icon name="search" size={24} color="blue" />
+            ) : (
+              <Icon name="search" size={24} color="gray" />
+            ),
+        }}
+      />
+      <Tab.Screen
+        name="Order"
+        component={Order}
+        options={{
+          tabBarIcon: ({focused}) =>
+            focused ? (
+              <Icon name="shopping-bag" size={24} color="blue" />
+            ) : (
+              <Icon name="shopping-bag" size={24} color="gray" />
+            ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
