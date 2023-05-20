@@ -21,11 +21,21 @@ import Order from './src/Tab/Order';
 import Chats from './src/BottomTab/Chats';
 import Calls from './src/BottomTab/Calls';
 import Status from './src/BottomTab/Status';
+import ProfileNew from './src/DrawerRummy/ProfileNew';
+import HomeNew from './src/DrawerRummy/HomeNew';
+import AboutUsNew from './src/DrawerRummy/AboutUsNew';
+import Help from './src/DrawerRummy/Help';
+import Records from './src/DrawerRummy/Records';
+import Refund from './src/DrawerRummy/Refund';
+import SettingsNew from './src/DrawerRummy/SettingsNew';
+import Wallet from './src/DrawerRummy/Wallet';
+import DrawerContentNew from './src/DrawerRummy/DrawerContentNew';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createMaterialTopTabNavigator();
 const BottomTab = createBottomTabNavigator();
+const DrawerRummy = createDrawerNavigator();
 
 function MyStack() {
   return (
@@ -53,6 +63,11 @@ function MyStack() {
       <Stack.Screen
         name="BottomTab"
         component={MyBottomTab}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DrawerRummy"
+        component={MyDrawerRummy}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
@@ -189,6 +204,22 @@ function MyBottomTab() {
         }}
       />
     </BottomTab.Navigator>
+  );
+}
+
+function MyDrawerRummy() {
+  return (
+    <DrawerRummy.Navigator
+      drawerContent={props => <DrawerContentNew {...props} />}>
+      <Drawer.Screen name="HomeNew" component={HomeNew} />
+      <Drawer.Screen name="ProfileNew" component={ProfileNew} />
+      <Drawer.Screen name="AboutUsNew" component={AboutUsNew} />
+      <Drawer.Screen name="Help" component={Help} />
+      <Drawer.Screen name="Records" component={Records} />
+      <Drawer.Screen name="Refund" component={Refund} />
+      <Drawer.Screen name="SettingsNew" component={SettingsNew} />
+      <Drawer.Screen name="Wallet" component={Wallet} />
+    </DrawerRummy.Navigator>
   );
 }
 
