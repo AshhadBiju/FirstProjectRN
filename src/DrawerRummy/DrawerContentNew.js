@@ -14,8 +14,8 @@ export default class DrawerContentNew extends Component {
           <View style={styles.infoView}>
             <Text style={styles.profileText}>Favaz</Text>
             <Text style={styles.goldText}>Gold</Text>
-            <Text style={styles.nameText}>Total Coin</Text>
-            <Text style={styles.nameText}>coin:20000</Text>
+            <Text style={styles.totalcoinText}>Total Coin</Text>
+            <Text style={styles.coinText}>coin:20000</Text>
             <Text style={styles.inviteText}>Invite</Text>
           </View>
         </View>
@@ -28,16 +28,6 @@ export default class DrawerContentNew extends Component {
           style={styles.menu}
           onPress={() => this.props.navigation.navigate('ProfileNew')}>
           Profile
-        </Text>
-        <Text
-          style={styles.menu}
-          onPress={() => this.props.navigation.navigate('AboutUsNew')}>
-          About Us
-        </Text>
-        <Text
-          style={styles.menu}
-          onPress={() => this.props.navigation.navigate('SettingsNew')}>
-          Settings
         </Text>
         <Text
           style={styles.menu}
@@ -56,14 +46,20 @@ export default class DrawerContentNew extends Component {
         </Text>
         <Text
           style={styles.menu}
-          onPress={() => this.props.navigation.navigate('Wallet')}>
-          Wallet Balance
+          onPress={() => this.props.navigation.navigate('SettingsNew')}>
+          Settings
+        </Text>
+        <Text
+          style={styles.menu}
+          onPress={() => this.props.navigation.navigate('AboutUsNew')}>
+          About Us
         </Text>
         <Text
           style={styles.menu}
           onPress={() => this.props.navigation.navigate('Help')}>
           Help
         </Text>
+        <Text style={styles.logoutText}>Logout</Text>
       </View>
     );
   }
@@ -74,12 +70,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   menu: {
-    fontSize: 14,
-    marginTop: 22,
-    marginLeft: 90,
-    color: 'gray',
+    fontSize: 12,
+    marginTop: 12,
+    marginLeft: 40,
+    color: 'black',
     fontWeight: 'normal',
-    borderBottomWidth: 1,
+    padding: 6,
+    borderBottomWidth: 0.5,
   },
   profileContainer: {
     height: '30%',
@@ -88,15 +85,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   profileIcon: {
-    height: 100,
-    width: 100,
+    height: 55,
+    width: 70,
     backgroundColor: 'black',
     borderRadius: 50,
     marginTop: 29,
     marginLeft: 10,
   },
   infoView: {
-    marginLeft: 95,
+    color: 'black',
   },
   profileImage: {
     height: '50%',
@@ -108,12 +105,18 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     marginBottom: 5,
     marginTop: 20,
+    marginLeft: 130,
   },
-  nameText: {
+  totalcoinText: {
     color: 'white',
     fontWeight: 'normal',
-    marginBottom: 5,
-    marginTop: 20,
+    marginLeft: 120,
+    marginTop: 65,
+  },
+  coinText: {
+    color: 'white',
+    fontWeight: 'normal',
+    marginLeft: 120,
   },
   goldText: {
     height: 20,
@@ -122,6 +125,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
     borderRadius: 5,
     textAlign: 'center',
+    marginLeft: 120,
   },
   inviteText: {
     height: 20,
@@ -130,5 +134,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 5,
     textAlign: 'center',
+    marginLeft: -75,
+    marginTop: -25,
+  },
+  logoutText: {
+    fontSize: 12,
+    marginTop: 100,
+    marginLeft: 100,
+    color: 'black',
+    fontWeight: 'normal',
+    padding: 6,
   },
 });
