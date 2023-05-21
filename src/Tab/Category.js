@@ -7,6 +7,8 @@ import {
   ActivityIndicator,
   FlatList,
 } from 'react-native';
+import {createIconSet} from 'react-native-vector-icons';
+import axios from 'axios';
 
 export default class Category extends Component {
   constructor() {
@@ -26,11 +28,25 @@ export default class Category extends Component {
           this.setState({DATA: response});
         }
         this.setState({loader: false});
-        console.log('YOUR RESPONSE is:', response);
+        //console.log('YOUR RESPONSE is:', response);
       })
       .catch(error => {
         this.setState({loader: false});
         console.log('ERROR IS:', error);
+      });
+  }
+
+  getAxiosData() {
+    this.setState({loader: true});
+    axios
+      .get('https://api.sampleapis.com/coffee/hot')
+      .then(response => {
+        this.setState({loader: false});
+        console.log('AXIOS:RESPONSE', response);
+      })
+      .catch(error => {
+        this.setState({loader: false});
+        console.log('AXIOS:ERROR', error);
       });
   }
 
@@ -52,7 +68,9 @@ export default class Category extends Component {
           color="blue"
           animating={this.state.loader}
         />
-        <Text style={styles.categoryText}>Hi This is Category List</Text>
+        <Text style={styles.categoryText} onPress={() => this.getAxiosData()}>
+          Hi This is Category List
+        </Text>
         <FlatList
           style={{width: '95%', marginTop: 10}}
           data={this.state.DATA}
