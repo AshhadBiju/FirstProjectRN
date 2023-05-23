@@ -4,12 +4,34 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class Cart extends Component {
+  constructor() {
+    console.log('Constructor Called');
+    super();
+    this.state = {
+      headerText: 'Hi',
+    };
+  }
+
+  static getDerivedStateFromProps() {
+    console.log('GetDerivedStateFromProps called');
+    return null;
+  }
+
+  componentDidMount() {
+    console.log('Component Called');
+  }
+
   render() {
+    console.log('Render Called');
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollContainer}>
           <View style={styles.scrollChildView}>
-            <View style={styles.headerCard}></View>
+            <View style={styles.headerCard}>
+              <Text style={{fontSize: 16, fontWeight: 'bold', marginTop: 10}}>
+                {this.state.headerText}
+              </Text>
+            </View>
             <View style={styles.baselineCard}>
               <View style={styles.textHolder}>
                 <Icon name="edit" size={16} color="black" />
