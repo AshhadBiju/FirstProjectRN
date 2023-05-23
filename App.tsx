@@ -94,7 +94,7 @@ function MyTab(): JSX.Element {
         tabBarStyle: {backgroundColor: '#ffff'},
       }}>
       <Tab.Screen
-        name="Cart"
+        name="LifeCycle"
         component={Cart}
         options={{
           tabBarActiveTintColor: 'blue',
