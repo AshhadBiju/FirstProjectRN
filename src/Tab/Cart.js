@@ -1,6 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableHighlight,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class Cart extends Component {
@@ -16,9 +22,25 @@ export default class Cart extends Component {
     console.log('GetDerivedStateFromProps called');
     return null;
   }
+  updateState() {
+    this.setState({headerText: 'Component updated'});
+  }
 
   componentDidMount() {
     console.log('Component Called');
+  }
+
+  //shouldComponentUpdate() {
+  //  console.log('Should component update called');
+  //  return null;
+  // }
+
+  componentDidUpdate() {
+    console.log('Component did update called');
+  }
+
+  componentWillUnmount() {
+    console.log('Component unmount is called');
   }
 
   render() {
@@ -28,14 +50,14 @@ export default class Cart extends Component {
         <ScrollView style={styles.scrollContainer}>
           <View style={styles.scrollChildView}>
             <View style={styles.headerCard}>
-              <Text style={{fontSize: 16, fontWeight: 'bold', marginTop: 10}}>
-                {this.state.headerText}
-              </Text>
+              {/* <Text style={{fontSize: 16, fontWeight: 'bold', marginTop: 10}}>
+                {this.state.headerText} 
+    </Text> */}
             </View>
             <View style={styles.baselineCard}>
               <View style={styles.textHolder}>
                 <Icon name="edit" size={16} color="black" />
-                <Text style={{fontSize: 16, marginLeft: 10}}>Mounting</Text>
+                <Text style={{fontSize: 16, marginLeft: 20}}>Mounting</Text>
               </View>
               <View style={styles.textHolder}>
                 <Icon name="edit" size={16} color="black" />
@@ -45,6 +67,22 @@ export default class Cart extends Component {
                 <Icon name="edit" size={16} color="black" />
                 <Text style={{fontSize: 16, marginLeft: 10}}>Un-Mounting</Text>
               </View>
+              <TouchableHighlight
+                style={{
+                  width: '80%',
+                  height: 55,
+                  backgroundColor: 'green',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginTop: 10,
+                }}
+                underlayColor="transparent"
+                onPress={() => this.updateState()}>
+                <Text
+                  style={{color: 'white', fontSize: 18, fontWeight: 'bold'}}>
+                  Updating
+                </Text>
+              </TouchableHighlight>
             </View>
           </View>
         </ScrollView>

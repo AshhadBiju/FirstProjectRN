@@ -30,12 +30,17 @@ import Refund from './src/DrawerRummy/Refund';
 import SettingsNew from './src/DrawerRummy/SettingsNew';
 import Wallet from './src/DrawerRummy/Wallet';
 import DrawerContentNew from './src/DrawerRummy/DrawerContentNew';
+import Videos from './src/TopTab/Videos';
+import Chapter from './src/TopTab/Chapter';
+import Resources from './src/TopTab/Resources';
+import QNBank from './src/TopTab/QNBank';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createMaterialTopTabNavigator();
 const BottomTab = createBottomTabNavigator();
 const DrawerRummy = createDrawerNavigator();
+const TopTab = createMaterialTopTabNavigator();
 
 function MyStack() {
   return (
@@ -68,6 +73,11 @@ function MyStack() {
       <Stack.Screen
         name="DrawerRummy"
         component={MyDrawerRummy}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="TopTab"
+        component={MyTopTab}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
@@ -153,6 +163,49 @@ function MyTab(): JSX.Element {
   );
 }
 
+function MyTopTab(): JSX.Element {
+  return (
+    <TopTab.Navigator
+      screenOptions={{
+        tabBarLabelStyle: {fontSize: 12},
+        tabBarItemStyle: {width: 100},
+        tabBarStyle: {backgroundColor: '#ffff'},
+      }}>
+      <TopTab.Screen
+        name="Videos"
+        component={Videos}
+        options={{
+          tabBarActiveTintColor: 'red',
+          tabBarInactiveTintColor: 'gray',
+        }}
+      />
+      <TopTab.Screen
+        name="Chapter"
+        component={Chapter}
+        options={{
+          tabBarActiveTintColor: 'red',
+          tabBarInactiveTintColor: 'gray',
+        }}
+      />
+      <TopTab.Screen
+        name="Resources"
+        component={Resources}
+        options={{
+          tabBarActiveTintColor: 'red',
+          tabBarInactiveTintColor: 'gray',
+        }}
+      />
+      <TopTab.Screen
+        name="QNBank"
+        component={QNBank}
+        options={{
+          tabBarActiveTintColor: 'red',
+          tabBarInactiveTintColor: 'gray',
+        }}
+      />
+    </TopTab.Navigator>
+  );
+}
 function MyBottomTab() {
   return (
     <BottomTab.Navigator
