@@ -6,7 +6,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
+import {Text, StyleSheet, View, Pressable} from 'react-native';
 import Login from './src/Login';
 import Flexbox from './src/Flexbox';
 import Home from './src/Drawer/Home';
@@ -165,47 +165,85 @@ function MyTab(): JSX.Element {
 
 function MyTopTab(): JSX.Element {
   return (
-    <TopTab.Navigator
-      screenOptions={{
-        tabBarLabelStyle: {fontSize: 12},
-        tabBarItemStyle: {width: 100},
-        tabBarStyle: {backgroundColor: '#ffff'},
-      }}>
-      <TopTab.Screen
-        name="Videos"
-        component={Videos}
-        options={{
-          tabBarActiveTintColor: 'red',
-          tabBarInactiveTintColor: 'gray',
-        }}
-      />
-      <TopTab.Screen
-        name="Chapter"
-        component={Chapter}
-        options={{
-          tabBarActiveTintColor: 'red',
-          tabBarInactiveTintColor: 'gray',
-        }}
-      />
-      <TopTab.Screen
-        name="Resources"
-        component={Resources}
-        options={{
-          tabBarActiveTintColor: 'red',
-          tabBarInactiveTintColor: 'gray',
-        }}
-      />
-      <TopTab.Screen
-        name="QNBank"
-        component={QNBank}
-        options={{
-          tabBarActiveTintColor: 'red',
-          tabBarInactiveTintColor: 'gray',
-        }}
-      />
-    </TopTab.Navigator>
+    <>
+      <View style={styles.container}>
+        <Pressable style={styles.buttonStyle}>
+          <Icon name="search" size={22} style={styles.icon} />
+          <Text style={styles.searchText}>Search for service</Text>
+        </Pressable>
+      </View>
+
+      <TopTab.Navigator
+        screenOptions={{
+          tabBarLabelStyle: {fontSize: 12},
+          tabBarItemStyle: {width: 100},
+          tabBarStyle: {backgroundColor: '#ffff'},
+        }}>
+        <TopTab.Screen
+          name="Videos"
+          component={Videos}
+          options={{
+            tabBarActiveTintColor: 'red',
+            tabBarInactiveTintColor: 'gray',
+          }}
+        />
+        <TopTab.Screen
+          name="Chapter"
+          component={Chapter}
+          options={{
+            tabBarActiveTintColor: 'red',
+            tabBarInactiveTintColor: 'gray',
+          }}
+        />
+        <TopTab.Screen
+          name="Resources"
+          component={Resources}
+          options={{
+            tabBarActiveTintColor: 'red',
+            tabBarInactiveTintColor: 'gray',
+          }}
+        />
+        <TopTab.Screen
+          name="QNBank"
+          component={QNBank}
+          options={{
+            tabBarActiveTintColor: 'red',
+            tabBarInactiveTintColor: 'gray',
+          }}
+        />
+      </TopTab.Navigator>
+    </>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+  },
+  buttonStyle: {
+    height: 40,
+    marginTop: 10,
+    marginBottom: 10,
+    marginRight: 20,
+    marginLeft: 20,
+    borderRadius: 3,
+    backgroundColor: 'white',
+    borderWidth: 0.2,
+    borderColor: 'gray',
+    elevation: 2,
+  },
+  icon: {
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 16,
+  },
+  searchText: {
+    color: 'gray',
+    fontFamily: 'Times New Roman',
+    marginLeft: 55,
+    marginTop: -31,
+    fontSize: 16,
+  },
+});
 function MyBottomTab() {
   return (
     <BottomTab.Navigator
