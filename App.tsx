@@ -17,7 +17,7 @@ import Settings from './src/Drawer/Settings';
 import Cart from './src/Tab/Cart';
 import Category from './src/Tab/Category';
 import Search from './src/Tab/Search';
-import Order from './src/Tab/Order';
+
 import Chats from './src/BottomTab/Chats';
 import Calls from './src/BottomTab/Calls';
 import Status from './src/BottomTab/Status';
@@ -34,6 +34,7 @@ import Videos from './src/TopTab/Videos';
 import Chapter from './src/TopTab/Chapter';
 import Resources from './src/TopTab/Resources';
 import QNBank from './src/TopTab/QNBank';
+import DataComponent from './src/Tab/DataComponent';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -146,8 +147,8 @@ function MyTab(): JSX.Element {
         }}
       />
       <Tab.Screen
-        name="Order"
-        component={Order}
+        name="DataComponent"
+        component={DataComponent}
         options={{
           tabBarActiveTintColor: 'blue',
           tabBarInactiveTintColor: 'gray',
