@@ -1,29 +1,75 @@
 /* eslint-disable prettier/prettier */
-import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, FlatList} from 'react-native';
+import axios from 'axios';
+
 const DataComponent = () => {
-  const [data, setData] = useState([]);
+  const [fetchPosts, setFetchPosts] = useState([]);
+  const [axiosPosts, setAxiosPosts] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    fetchPostsUsingFetch();
+    fetchPostsUsingAxios();
   }, []);
 
-  const fetchData = () => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(jsonData => {
-        setData(jsonData);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+  const fetchPostsUsingFetch = async () => {
+    try {
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/posts',
+      );
+      const data = await response.json();
+      setFetchPosts(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const fetchPostsUsingAxios = async () => {
+    try {
+      const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/posts',
+      );
+      setAxiosPosts(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <View>
-      {data.map(item => (
-        <Text key={item.id}>{item.title}</Text>
-      ))}
+      <Text style={{fontSize: 18, fontWeight: 'bold', marginBottom: 10}}>
+        Posts (Fetch):
+      </Text>
+      <FlatList
+        data={fetchPosts.slice(0, 2)}
+        keyExtractor={item => String(item.id)}
+        renderItem={({item}) => (
+          <View style={{marginBottom: 10}}>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}>{item.title}</Text>
+            <Text>{item.body}</Text>
+          </View>
+        )}
+      />
+
+      <Text
+        style={{
+          fontSize: 18,
+          fontWeight: 'bold',
+          marginTop: 20,
+          marginBottom: 10,
+        }}>
+        Posts (Axios):
+      </Text>
+      <FlatList
+        data={axiosPosts.slice(0, 2)}
+        keyExtractor={item => String(item.id)}
+        renderItem={({item}) => (
+          <View style={{marginBottom: 10}}>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}>{item.title}</Text>
+            <Text>{item.body}</Text>
+          </View>
+        )}
+      />
     </View>
   );
 };
