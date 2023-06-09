@@ -4,7 +4,7 @@ import {View, Image, TouchableOpacity} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {TextInput, Button, Text} from 'react-native-paper';
 
-const LoginScreen = () => {
+const Verification = () => {
   const [phoneNumber, setPhoneNumber] = React.useState('');
 
   const handleLogin = () => {
@@ -17,11 +17,22 @@ const LoginScreen = () => {
         source={require('../assets/inmakesLogo.png')}
         style={styles.logo}
       />
-      <Text style={styles.enteryourtext}>Enter your mobile number</Text>
-      <Text style={styles.OTPtext}>We will send you an OTP to verify</Text>
+      <Text style={styles.enteryourtext}>Verification code</Text>
+      <Text style={styles.verificationtext}>
+        Please type the verification code sent to
+      </Text>
       <View style={styles.loginView}>
-        <View style={styles.numberBox}>
-          <Text style={styles.numberText}>Mobile Number</Text>
+        <View style={styles.countryNumberBox}>
+          <Text style={styles.numberText}>+91</Text>
+        </View>
+        <View style={styles.countryNumberBox}>
+          <Text style={styles.numberText}>+91</Text>
+        </View>
+        <View style={styles.countryNumberBox}>
+          <Text style={styles.numberText}>+91</Text>
+        </View>
+        <View style={styles.countryNumberBox}>
+          <Text style={styles.numberText}>+91</Text>
         </View>
         <View style={styles.countryNumberBox}>
           <Text style={styles.numberText}>+91</Text>
@@ -30,7 +41,7 @@ const LoginScreen = () => {
           style={styles.continueBox}
           mode="contained"
           onPress={handleLogin}>
-          <Text style={styles.continueText}>Continue</Text>
+          <Text style={styles.continueText}>Resend OTP</Text>
         </Button>
       </View>
     </View>
@@ -50,20 +61,21 @@ const styles = StyleSheet.create({
   },
   enteryourtext: {
     fontSize: 18,
-    top: 180,
+    top: 170,
     fontWeight: 'bold',
     color: 'black',
   },
-  OTPtext: {
+  verificationtext: {
     fontSize: 13,
-    top: 183,
-    fontWeight: '100',
+    top: 173,
+    fontWeight: '600',
     color: 'black',
   },
   loginView: {
-    width: '75%',
-    height: '25%',
-    bottom: '-36%',
+    width: '85%',
+    height: '35%',
+    bottom: '-49%',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
@@ -72,9 +84,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#03292b',
   },
   continueBox: {
-    width: 235,
-    height: 40,
-    top: -30,
+    width: 270,
+    height: 50,
+    top: 100,
+    position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
     borderColor: 'black',
@@ -91,7 +104,6 @@ const styles = StyleSheet.create({
     width: 188,
     height: 40,
     justifyContent: 'center',
-    right: '-9%',
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 6,
@@ -105,9 +117,9 @@ const styles = StyleSheet.create({
     paddingLeft: '10%',
   },
   countryNumberBox: {
-    width: 44,
-    height: 40,
-    left: -94,
+    width: 54,
+    height: 50,
+    left: 4,
     top: -40,
     alignItems: 'center',
     justifyContent: 'center',
@@ -118,4 +130,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default Verification;
