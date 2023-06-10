@@ -3,6 +3,7 @@ import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {TextInput, Button, Text} from 'react-native-paper';
+import Icon from 'react-native-vector-icons';
 
 const Verification = () => {
   const [phoneNumber, setPhoneNumber] = React.useState('');
@@ -21,6 +22,7 @@ const Verification = () => {
       <Text style={styles.verificationtext}>
         Please type the verification code sent to
       </Text>
+      <Text style={styles.sentToText}>+91 840482390</Text>
       <View style={styles.loginView}>
         <View style={styles.countryNumberBox}>
           <Text style={styles.numberText}>+91</Text>
@@ -42,6 +44,9 @@ const Verification = () => {
           mode="contained"
           onPress={handleLogin}>
           <Text style={styles.continueText}>Resend OTP</Text>
+        </Button>
+        <Button icon="phone" style={styles.contactLogo}>
+          Contact Us
         </Button>
       </View>
     </View>
@@ -70,6 +75,9 @@ const styles = StyleSheet.create({
     top: 173,
     fontWeight: '600',
     color: 'black',
+  },
+  sentToText: {
+    top: 180,
   },
   loginView: {
     width: '85%',
@@ -119,7 +127,7 @@ const styles = StyleSheet.create({
   countryNumberBox: {
     width: 54,
     height: 50,
-    left: 4,
+    left: 62,
     top: -40,
     alignItems: 'center',
     justifyContent: 'center',
@@ -127,6 +135,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 6,
     backgroundColor: 'gray',
+  },
+  contactLogo: {
+    backgroundColor: 'black',
+    textDecorationColor: 'white',
+    top: 70,
+    right: 130,
   },
 });
 
