@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {TextInput, Button, Text, IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons';
 
-const Verification = () => {
+const SchoolBoard = () => {
   const [phoneNumber, setPhoneNumber] = React.useState('');
 
   const handleLogin = () => {
@@ -18,35 +19,20 @@ const Verification = () => {
         source={require('../assets/inmakesLogo.png')}
         style={styles.logo}
       />
-      <Text style={styles.enteryourtext}>Verification code</Text>
-      <Text style={styles.verificationtext}>
-        Please type the verification code sent to
-      </Text>
-      <Text style={styles.sentToText}>+91 840482390</Text>
+      <Text style={styles.enteryourtext}>Select your School Board </Text>
+
       <View style={styles.loginView}>
-        <View style={styles.countryNumberBox}>
-          <Text style={styles.numberText}>+91</Text>
+        <View style={styles.detailBox}>
+          <Text style={styles.numberText}>Select Board</Text>
         </View>
-        <View style={styles.countryNumberBox}>
-          <Text style={styles.numberText}>+91</Text>
-        </View>
-        <View style={styles.countryNumberBox}>
-          <Text style={styles.numberText}>+91</Text>
-        </View>
-        <View style={styles.countryNumberBox}>
-          <Text style={styles.numberText}>+91</Text>
-        </View>
-        <View style={styles.countryNumberBox}>
-          <Text style={styles.numberText}>+91</Text>
+        <View style={styles.detailBox}>
+          <Text style={styles.numberText}>Select Class</Text>
         </View>
         <Button
           style={styles.continueBox}
           mode="contained"
           onPress={handleLogin}>
-          <Text style={styles.continueText}>Resend OTP</Text>
-        </Button>
-        <Button icon="phone" style={styles.contactLogo}>
-          Contact Us
+          <Text style={styles.continueText}>Continue</Text>
         </Button>
       </View>
     </View>
@@ -63,16 +49,18 @@ const styles = StyleSheet.create({
   logo: {
     width: 170,
     height: 40,
+    position: 'absolute',
+    top: 210,
   },
   enteryourtext: {
     fontSize: 18,
-    top: 170,
+    top: 300,
     fontWeight: 'bold',
     color: 'black',
   },
   verificationtext: {
     fontSize: 13,
-    top: 173,
+    top: 300,
     fontWeight: '600',
     color: 'black',
   },
@@ -81,11 +69,12 @@ const styles = StyleSheet.create({
   },
   loginView: {
     width: '85%',
-    height: '35%',
+    height: '65%',
     bottom: '-49%',
-    flexDirection: 'row',
+    paddingTop: '6%',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    position: 'relative',
     borderWidth: 1,
     borderColor: 'black',
     borderRadius: 13,
@@ -94,14 +83,22 @@ const styles = StyleSheet.create({
   continueBox: {
     width: 270,
     height: 50,
-    top: 100,
-    position: 'absolute',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: '4%',
+    justifyContent: 'space-around',
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 6,
     backgroundColor: 'green',
+  },
+  detailBox: {
+    width: 270,
+    height: 50,
+    marginTop: '1%',
+    justifyContent: 'space-around',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 6,
+    backgroundColor: 'gray',
   },
   continueText: {
     fontSize: 13,
@@ -143,4 +140,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Verification;
+export default SchoolBoard;
