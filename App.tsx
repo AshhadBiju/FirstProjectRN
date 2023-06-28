@@ -1,5 +1,9 @@
 import React from 'react';
-import {Provider as PaperProvider} from 'react-native-paper';
+//import {Provider as PaperProvider} from 'react-native-paper';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {Text} from 'react-native-paper';
+
 //import LoginScreen from './src/LoginScreen';
 //import Verification from './src/Verification';
 //import Details from './src/Details';
@@ -7,7 +11,7 @@ import {Provider as PaperProvider} from 'react-native-paper';
 //import Carousel1 from './src/Tab/Carousel1';
 //import Carousel2 from './src/Tab/Carousel2';
 //import Carousel3 from './src/Tab/Carousel3';
-import Carousel4 from './src/Tab/Carousel4';
+//import Carousel4 from './src/Tab/Carousel4';
 /*const App = () => {
   return (
     <PaperProvider>
@@ -22,11 +26,17 @@ import Carousel4 from './src/Tab/Carousel4';
     </PaperProvider>
   );
 };*/
-const App = () => {
+/*const App = () => {
   return (
     <PaperProvider>
       <Carousel4 />
     </PaperProvider>
   );
-};
-export default App;
+};*/
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Text>Welcome to my Inmakes App</Text>
+    </NavigationContainer>
+  );
+}
