@@ -37,6 +37,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
     </PaperProvider>
   );
 };*/
+Icon.loadFont();
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
