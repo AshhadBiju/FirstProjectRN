@@ -1,9 +1,13 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 //import {Provider as PaperProvider} from 'react-native-paper';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {Text} from 'react-native-paper';
-
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Home from './components/Home';
+import colors from './assets/colors/colors';
+import Icon from 'react-native-vector-icons/Ionicons';
 //import LoginScreen from './src/LoginScreen';
 //import Verification from './src/Verification';
 //import Details from './src/Details';
@@ -33,10 +37,17 @@ import {Text} from 'react-native-paper';
     </PaperProvider>
   );
 };*/
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Text>Welcome to my Inmakes App</Text>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
