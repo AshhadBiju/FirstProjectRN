@@ -2,20 +2,20 @@
 const recentCourses = [
   {
     id: 1,
-    // image: require('../../assets/GodOfWar.png'),
-    title: 'Space',
+    image: require('../assets/gtabg.jpg'),
+    // title: 'Space',
     selected: true,
   },
   {
     id: 2,
-    //  image: require('../../assets/GodOfWar.png'),
-    title: 'MilkyWay',
+    image: require('../assets/gtabg.jpg'),
+    //title: 'MilkyWay',
     selected: false,
   },
   {
     id: 3,
-    //  image: require('../../assets/GodOfWar.png'),
-    title: 'Space2',
+    image: require('../assets/gtabg.jpg'),
+    // title: 'Space2',
     selected: false,
   },
 ];
