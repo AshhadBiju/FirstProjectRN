@@ -37,8 +37,15 @@ export default Home = () => {
   };
   const renderInmakesLiveCLasses = ({item}) => {
     return (
-      <View>
-        <Image source={item.image} style={styles.classesimage}></Image>
+      <View style={styles.inmakesLiveStyle}>
+        <Text style={styles.inmakesLiveClassText}>Inmakes live classes</Text>
+        <Text style={styles.inmakesLiveClassDescription}>
+          Live Classes by best teachers from LearningHub to clear your doubts
+          and to provide individual attention
+        </Text>
+        <View style={styles.inmakesLiveButton}>
+          <Text>Book a Free Class</Text>
+        </View>
       </View>
     );
   };
@@ -90,15 +97,12 @@ export default Home = () => {
         </View>
       </View>
       {/* Inmakes Live Classes */}
-      <View style={styles.recentWrapper}>
-        <Text style={styles.recentTitle}>Recent Courses</Text>
-        <View>
-          <FlatList
-            data={InmakesLiveClasses}
-            renderItem={renderInmakesLiveCLasses}
-            keyExtractor={item => item.id}
-            horizontal={true}></FlatList>
-        </View>
+      <View>
+        <FlatList
+          data={InmakesLiveClasses}
+          renderItem={renderInmakesLiveCLasses}
+          keyExtractor={item => item.id}
+          horizontal={true}></FlatList>
       </View>
     </View>
   );
@@ -187,5 +191,24 @@ const styles = StyleSheet.create({
     left: 4,
     borderRadius: 5,
     marginLeft: 15,
+  },
+  inmakesLiveStyle: {
+    height: 150,
+    width: 120,
+    backgroundColor: 'blue',
+    marginLeft: 10,
+    borderRadius: 6,
+  },
+  inmakesLiveClassText: {
+    color: 'white',
+  },
+  inmakesLiveClassDescription: {
+    color: 'white',
+  },
+  inmakesLiveButton: {
+    height: 60,
+    width: 60,
+    backgroundColor: 'green',
+    borderRadius: 5,
   },
 });
