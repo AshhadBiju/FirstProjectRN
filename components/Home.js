@@ -193,22 +193,26 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   inmakesLiveStyle: {
-    height: 150,
-    width: 120,
-    backgroundColor: 'blue',
+    height: 220,
+    width: 170,
+    backgroundColor: '#013036',
     marginLeft: 10,
     borderRadius: 6,
   },
   inmakesLiveClassText: {
     color: 'white',
+    textAlign: 'center',
   },
   inmakesLiveClassDescription: {
     color: 'white',
+    textAlign: 'center',
+    justifyContent: 'center',
   },
   inmakesLiveButton: {
     height: 60,
     width: 60,
     backgroundColor: 'green',
     borderRadius: 5,
+    alignItems: 'center',
   },
 });
